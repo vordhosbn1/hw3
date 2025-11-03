@@ -1,26 +1,32 @@
 <%- include('partials/head.ejs') %>
 <%- include('partials/nav.ejs') %>
 
-<h1 class="text-center mb-4">Welcome to the Home page!</h1>
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div class="text-center">
+    <h1 class="mb-4">Fake Person</h1>
 
-<h2 class="mb-3">Name Probability (genderize)</h2>
-<form action="/searchName" method="get" class="mb-5" style="max-width: 720px;">
-  <div class="mb-3">
-    <label class="form-label">Name</label>
-    <input name="name" class="form-control" placeholder="e.g., Alice">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Gender</label>
-    <select name="gender" class="form-select">
-      <option value="">Any</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-primary w-100">Search</button>
-</form>
+    <div class="card shadow-sm p-4 mx-auto" style="max-width: 500px;">
+      <h2 class="mb-3">Search by name (Web API)</h2>
+      <form action="/searchName" method="get" class="mb-4">
+        <div class="mb-3 text-start">
+          <label class="form-label">Name</label>
+          <input name="name" class="form-control" placeholder="e.g., Logan" />
+        </div>
+        <div class="mb-3 text-start">
+          <label class="form-label">Gender</label>
+          <select name="gender" class="form-select">
+            <option value="">Any</option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Search</button>
+      </form>
 
-<h2>Random Person (faker)</h2>
-<a href="/randomPerson" class="btn btn-success mt-2">Generate one</a>
+      <h2 class="mb-3">Random Person (faker)</h2>
+      <a href="/randomPerson" class="btn btn-success w-100">Generate one</a>
+    </div>
+  </div>
+</div>
 
 <%- include('partials/footer.ejs') %>
