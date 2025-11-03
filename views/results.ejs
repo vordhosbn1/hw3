@@ -1,0 +1,20 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/nav.ejs') %>
+
+<div class="container text-center">
+  <h1 class="mb-3">Random Person (faker)</h1>
+  <% if (avatar) { %>
+    <img src="<%= avatar %>" alt="avatar" class="rounded-circle mb-3" width="120">
+  <% } %>
+  <ul class="list-group mx-auto mb-3" style="max-width: 560px;">
+    <li class="list-group-item"><strong>Name:</strong> <%= randomName %></li>
+    <li class="list-group-item"><strong>Email:</strong> <%= email %></li>
+    <li class="list-group-item"><strong>Company:</strong> <%= company %></li>
+    <li class="list-group-item"><strong>Phone:</strong> <%= phone %></li>
+    <li class="list-group-item"><strong>Address:</strong> <%= address %>, <%= city %>, <%= country %></li>
+  </ul>
+  <a href="/randomPerson" class="btn btn-primary">Generate Again</a>
+  <a href="/" class="btn btn-outline-secondary ms-2">Home</a>
+</div>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,37 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/nav.ejs') %>
+
+<h1 class="mb-4 text-center">Name Probability</h1>
+
+<div class="card p-4 shadow-sm mx-auto mb-4" style="max-width: 720px;">
+  <form action="/searchName" method="get">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input name="name" class="form-control" placeholder="e.g., Bob" value="<%= name || '' %>" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Search</button>
+  </form>
+</div>
+
+<% if (error) { %>
+  <div class="alert alert-warning text-center mx-auto" style="max-width: 720px;"><%= error %></div>
+<% } %>
+
+<% if (name && g) { %>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card p-3 shadow-sm">
+        <h5 class="mb-2">Gender prediction for "<%= name %>"</h5>
+        <% if (g.gender) { %>
+          <p class="mb-1"><strong>Gender:</strong> <%= g.gender %></p>
+          <p class="mb-1"><strong>Probability:</strong> <%= (g.probability * 100).toFixed(0) %>%</p>
+          <p class="mb-0 text-muted">Sample size: <%= g.count %></p>
+        <% } else { %>
+          <p class="mb-0 text-muted">No prediction available.</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% } %>
+
+<%- include('partials/footer.ejs') %>
